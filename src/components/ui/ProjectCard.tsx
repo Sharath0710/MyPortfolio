@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, BadgeCheck } from "lucide-react";
 import type { CSSProperties } from "react";
 import type { Project } from "../../data/projects";
 import { HologramPanel } from "./HologramPanel";
@@ -19,7 +19,12 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
         className="aspect-video overflow-hidden rounded-md"
         style={{ boxShadow: `0 0 44px ${project.accent}1f` } as CSSProperties}
       >
-        <VideoPlaceholder title={project.title} src={project.demoVideo} />
+        <VideoPlaceholder
+          title={project.title}
+          src={project.demoVideo}
+          status={project.mediaStatus}
+          accent={project.accent}
+        />
       </div>
 
       <div className="mt-5 flex flex-1 flex-col lg:mt-0">
@@ -29,6 +34,10 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
               {project.category}
             </p>
             <h3 className="mt-2 text-2xl font-semibold text-white">{project.title}</h3>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full border border-amberSignal/30 bg-amberSignal/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.12em] text-amberSignal">
+              <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
+              {project.ownership}
+            </div>
           </div>
           {project.repository ? (
             <a
@@ -72,4 +81,3 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
     </HologramPanel>
   );
 }
-

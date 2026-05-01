@@ -63,7 +63,7 @@ try {
     await page.waitForSelector("canvas", { timeout: 20000 });
     await page.waitForTimeout(1600);
 
-    const stats = await page.locator("canvas").evaluate(async (canvas) => {
+    const stats = await page.locator("canvas").first().evaluate(async (canvas) => {
       await new Promise((resolve) => requestAnimationFrame(resolve));
 
       const gl = canvas.getContext("webgl2") ?? canvas.getContext("webgl");

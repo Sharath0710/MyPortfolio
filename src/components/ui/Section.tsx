@@ -7,13 +7,14 @@ import { containerWidth, sectionPadding } from "../styles/tokens";
 type SectionProps = {
   id: SectionId;
   eyebrow: string;
+  chapter?: string;
   title: string;
   intro?: string;
   children: ReactNode;
   className?: string;
 };
 
-export function Section({ id, eyebrow, title, intro, children, className = "" }: SectionProps) {
+export function Section({ id, eyebrow, chapter, title, intro, children, className = "" }: SectionProps) {
   return (
     <section id={id} className={`relative min-h-screen ${sectionPadding} ${className}`}>
       <div className={containerWidth}>
@@ -25,6 +26,7 @@ export function Section({ id, eyebrow, title, intro, children, className = "" }:
           className="mb-10 max-w-3xl"
         >
           <p className="text-sm font-medium uppercase tracking-[0.28em] text-cyanSignal">
+            {chapter ? <span className="mr-3 font-mono text-amberSignal">{chapter}</span> : null}
             {eyebrow}
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-normal text-white sm:text-5xl">
@@ -37,4 +39,3 @@ export function Section({ id, eyebrow, title, intro, children, className = "" }:
     </section>
   );
 }
-

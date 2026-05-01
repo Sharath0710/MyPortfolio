@@ -5,6 +5,7 @@ export type SectionId = "landing" | "about" | "work" | "tech" | "career" | "cont
 export type NavItem = {
   id: SectionId;
   label: string;
+  chapter: string;
 };
 
 export type SectionDefinition = NavItem & {
@@ -12,12 +13,12 @@ export type SectionDefinition = NavItem & {
 };
 
 export const navItems: NavItem[] = [
-  { id: "landing", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "work", label: "Work" },
-  { id: "tech", label: "Stack" },
-  { id: "career", label: "Career" },
-  { id: "contact", label: "Contact" },
+  { id: "landing", label: "Home", chapter: "00" },
+  { id: "about", label: "About", chapter: "01" },
+  { id: "work", label: "Work", chapter: "02" },
+  { id: "tech", label: "Stack", chapter: "03" },
+  { id: "career", label: "Career", chapter: "04" },
+  { id: "contact", label: "Contact", chapter: "05" },
 ];
 
 export const profile = {
@@ -28,8 +29,9 @@ export const profile = {
   phone: "+91 8123399640",
   headline: "Building real-time VR simulations and precise interaction systems.",
   summary:
-    "Unity Developer with hands-on experience building real-time 3D interactive applications and VR simulations using Unity and C#. Focused on gameplay systems, constrained mechanical interactions, runtime performance, and reliable XR user feedback.",
+    "Unity Developer with hands-on experience building real-time 3D interactive applications and VR simulations using Unity and C#. Most project systems are handled independently from scratch, from interaction logic to debugging, polish, and performance.",
   currentFocus: "VR training simulations, interaction mechanics, and scalable Unity prototypes.",
+  availability: "Available for XR / Unity roles and immersive prototype work.",
 };
 
 export const socialLinks = [
@@ -52,8 +54,17 @@ export const socialLinks = [
 
 export const heroStats = [
   { value: "2+", label: "Years in real-time systems" },
-  { value: "5", label: "XR / Unity projects" },
-  { value: "VR", label: "Training simulation focus" },
+  { value: "Solo", label: "From-scratch ownership" },
+  { value: "XR", label: "Training simulation focus" },
+];
+
+export const heroSignals = [
+  "Unity",
+  "C#",
+  "UltimateXR",
+  "OpenXR",
+  "Meta Quest",
+  "VR UI",
 ];
 
 export const aboutHighlights = [
@@ -69,5 +80,8 @@ export const aboutHighlights = [
     title: "Rapid Prototyping",
     body: "Turns technical assessments and simulation ideas into modular Unity prototypes under short timelines.",
   },
+  {
+    title: "Solo Ownership",
+    body: "Comfortable taking XR modules from blank scene setup through interactions, validation, debugging, and delivery.",
+  },
 ];
-

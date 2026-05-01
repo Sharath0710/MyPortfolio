@@ -17,6 +17,7 @@ export function Contact() {
     <Section
       id="contact"
       eyebrow="Contact"
+      chapter="05"
       title="Ready for XR projects, Unity roles, and immersive prototypes."
       intro="A focused closing section with direct channels for hiring conversations, collaboration, and project walkthroughs."
     >
@@ -97,4 +98,3 @@ export function Contact() {
     </Section>
   );
 }
-

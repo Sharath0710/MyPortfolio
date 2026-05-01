@@ -10,6 +10,7 @@ export function TechStack() {
     <Section
       id="tech"
       eyebrow="Tech Stack"
+      chapter="03"
       title="A Unity-centered stack for immersive systems."
       intro="The stack is grouped by the way Sharath works: core Unity engineering, XR devices and plugins, runtime development practices, and integration foundations."
     >
@@ -69,4 +70,3 @@ export function TechStack() {
     </Section>
   );
 }
-

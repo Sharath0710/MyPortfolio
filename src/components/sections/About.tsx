@@ -12,8 +12,9 @@ export function About() {
     <Section
       id="about"
       eyebrow="About"
+      chapter="01"
       title="XR systems with practical simulation depth."
-      intro="The portfolio should present Sharath as a hands-on Unity developer who understands the small details that make VR interactions feel believable: constraints, resistance, feedback, stability, and runtime performance."
+      intro="Hands-on Unity development for interactions that need to feel physically believable: constraints, resistance, feedback, stability, and runtime performance."
     >
       <motion.div
         variants={staggerContainer}
@@ -43,7 +44,7 @@ export function About() {
         </HologramPanel>
 
         <div className="space-y-5">
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {aboutHighlights.map((highlight) => (
               <HologramPanel key={highlight.title} accent="#6ee7b7">
                 <h3 className="text-lg font-semibold text-white">{highlight.title}</h3>
@@ -75,4 +76,3 @@ export function About() {
     </Section>
   );
 }
-

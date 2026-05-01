@@ -9,6 +9,7 @@ export default {
         panel: "#0d1320",
         cyanSignal: "#38d9ff",
         amberSignal: "#f6c85f",
+        orangeSignal: "#f25e04",
         mintSignal: "#6ee7b7",
         roseSignal: "#fb7185",
       },
@@ -23,4 +24,3 @@ export default {
   },
   plugins: [],
 } satisfies Config;
-

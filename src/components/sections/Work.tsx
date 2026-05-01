@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { projects } from "../../data/projects";
+import { projects, workNotes } from "../../data/projects";
 import { staggerContainer } from "../../lib/animations/motionVariants";
 import { ProjectCard } from "../ui/ProjectCard";
 import { Section } from "../ui/Section";
@@ -11,8 +11,9 @@ export function Work() {
     <Section
       id="work"
       eyebrow="Selected Work"
+      chapter="02"
       title="VR simulations, interaction prototypes, and Unity systems."
-      intro="Each project panel is data-driven and already includes a demo video slot, so final recordings can be added without touching the UI layer."
+      intro="Not every project has public video yet. The project system now supports private walkthroughs, future demo recordings, and additional work beyond the resume."
     >
       <motion.div
         variants={staggerContainer}
@@ -21,6 +22,14 @@ export function Work() {
         viewport={{ once: true, amount: 0.16 }}
         className="space-y-5"
       >
+        <div className="grid gap-3 md:grid-cols-3">
+          {workNotes.map((note) => (
+            <div key={note.value} className="holo-surface rounded-lg p-4">
+              <p className="text-2xl font-semibold text-amberSignal">{note.value}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-400">{note.label}</p>
+            </div>
+          ))}
+        </div>
         <ProjectCard project={featured} featured />
         <div className="grid gap-5 lg:grid-cols-2">
           {supporting.map((project) => (
@@ -31,4 +40,3 @@ export function Work() {
     </Section>
   );
 }
-

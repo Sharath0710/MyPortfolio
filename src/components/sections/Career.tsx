@@ -9,6 +9,7 @@ export function Career() {
     <Section
       id="career"
       eyebrow="Career"
+      chapter="04"
       title="A path from engineering projects to production XR work."
       intro="The timeline connects Sharath's current XR development role, backend training foundation, IoT exposure, and engineering education."
     >
@@ -36,4 +37,3 @@ export function Career() {
     </Section>
   );
 }
-

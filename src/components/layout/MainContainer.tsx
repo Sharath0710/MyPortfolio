@@ -13,12 +13,12 @@ import { Navbar } from "./Navbar";
 const PortfolioCanvas = lazy(() => import("../../scene/PortfolioCanvas"));
 
 const sections: SectionDefinition[] = [
-  { id: "landing", label: "Home", Component: Landing },
-  { id: "about", label: "About", Component: About },
-  { id: "work", label: "Work", Component: Work },
-  { id: "tech", label: "Stack", Component: TechStack },
-  { id: "career", label: "Career", Component: Career },
-  { id: "contact", label: "Contact", Component: Contact },
+  { id: "landing", label: "Home", chapter: "00", Component: Landing },
+  { id: "about", label: "About", chapter: "01", Component: About },
+  { id: "work", label: "Work", chapter: "02", Component: Work },
+  { id: "tech", label: "Stack", chapter: "03", Component: TechStack },
+  { id: "career", label: "Career", chapter: "04", Component: Career },
+  { id: "contact", label: "Contact", chapter: "05", Component: Contact },
 ];
 
 export function MainContainer() {

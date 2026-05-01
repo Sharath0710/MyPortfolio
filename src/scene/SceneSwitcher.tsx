@@ -7,9 +7,9 @@ import { useScene } from "../context/SceneContext";
 import type { SectionId } from "../data/portfolio";
 
 const scenePresets: Record<SectionId, { primary: string; secondary: string; spread: number }> = {
-  landing: { primary: "#38d9ff", secondary: "#f6c85f", spread: 1.1 },
+  landing: { primary: "#38d9ff", secondary: "#f25e04", spread: 1.1 },
   about: { primary: "#6ee7b7", secondary: "#38d9ff", spread: 1.24 },
-  work: { primary: "#f6c85f", secondary: "#fb7185", spread: 1.4 },
+  work: { primary: "#f25e04", secondary: "#38d9ff", spread: 1.4 },
   tech: { primary: "#a78bfa", secondary: "#38d9ff", spread: 1.08 },
   career: { primary: "#38d9ff", secondary: "#6ee7b7", spread: 1.26 },
   contact: { primary: "#fb7185", secondary: "#f6c85f", spread: 1.0 },
@@ -161,6 +161,11 @@ export function SceneSwitcher({ reducedMotion = false }: { reducedMotion?: boole
         primary: [1.48, 1.15, -2.8] as [number, number, number],
         secondary: [1.34, -0.36, -2.15] as [number, number, number],
       }
+    : activeSection === "work"
+      ? {
+          primary: [1.72, -0.24, -2.25] as [number, number, number],
+          secondary: [2.32, 1.1, -2.9] as [number, number, number],
+        }
     : {
         primary: [0.22, 0.22, -1.6] as [number, number, number],
         secondary: [1.72, 1.22, -2.8] as [number, number, number],
@@ -174,9 +179,11 @@ export function SceneSwitcher({ reducedMotion = false }: { reducedMotion?: boole
       <SignalOrb color={preset.secondary} position={orbPositions.secondary} reducedMotion={reducedMotion} />
       <SignalOrb color={preset.primary} position={orbPositions.primary} reducedMotion={reducedMotion} />
       <CharacterPlaceholder
-        visible={characterEnabled && activeSection === "about"}
+        visible={characterEnabled && (activeSection === "landing" || activeSection === "about")}
         accent={preset.primary}
         reducedMotion={reducedMotion}
+        position={activeSection === "landing" ? [2.42, -0.62, -1.95] : [2.55, -1.02, -1.75]}
+        scale={activeSection === "landing" ? 0.92 : 1}
       />
     </group>
   );
