@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #05070d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(56, 217, 255, 0.12), transparent 32rem),
+    radial-gradient(circle at 82% 20%, rgba(246, 200, 95, 0.08), transparent 26rem),
+    radial-gradient(circle at 54% 88%, rgba(110, 231, 183, 0.1), transparent 30rem),
+    #05070d;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(56, 217, 255, 0.32);
+  color: white;
+}
+
+.grid-mask {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 72%, transparent);
+}
+
+.holo-surface {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
+    rgba(8, 13, 23, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.orbital-ring {
+  animation: orbital-spin 22s linear infinite;
+}
+
+.orbital-ring-slow {
+  animation: orbital-spin 34s linear infinite reverse;
+}
+
+.scanline {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(56, 217, 255, 0.18),
+    transparent
+  );
+  animation: scanline 4.8s ease-in-out infinite;
+}
+
+.hero-copy {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-copy::before {
+  position: absolute;
+  z-index: -1;
+  inset: -1.5rem -2rem;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    rgba(5, 7, 13, 0.96),
+    rgba(5, 7, 13, 0.9),
+    rgba(5, 7, 13, 0.68)
+  );
+  filter: blur(10px);
+}
+
+@media (min-width: 900px) {
+  .hero-copy::before {
+    background: linear-gradient(
+      90deg,
+      rgba(5, 7, 13, 0.96),
+      rgba(5, 7, 13, 0.68),
+      rgba(5, 7, 13, 0)
+    );
+  }
+}
+
+@keyframes orbital-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scanline {
+  0%,
+  100% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  18%,
+  62% {
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
