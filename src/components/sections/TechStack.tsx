@@ -12,7 +12,7 @@ export function TechStack() {
       eyebrow="Tech Stack"
       chapter="03"
       title="A Unity-centered stack for immersive systems."
-      intro="The stack is grouped by the way Sharath works: core Unity engineering, XR devices and plugins, runtime development practices, and integration foundations."
+      intro="The stack is grouped by the way I work: core Unity engineering, XR devices and plugins, runtime development practices, and integration foundations."
     >
       <div className="grid gap-6 xl:grid-cols-[0.88fr_1.12fr]">
         <HologramPanel accent="#a78bfa" className="min-h-[420px]">

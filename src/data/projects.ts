@@ -106,24 +106,6 @@ export const projects: Project[] = [
     repository: "https://github.com/Sharath0710/Crazy-Cube",
     accent: "#a78bfa",
   },
-  {
-    id: "patient-health-monitoring",
-    title: "Patient Health Monitoring System",
-    category: "Award-winning Engineering Project",
-    description:
-      "An IoT-oriented healthcare monitoring concept focused on reducing cloud-delay issues in critical health data workflows.",
-    impact:
-      "Won Best Project Award, 1st Place, among 30+ projects at ACS College of Engineering.",
-    ownership: "Award-winning academic build",
-    mediaStatus: "case-study",
-    tech: ["IoT", "Sensors", "Real-time Data", "Embedded Workflows"],
-    highlights: [
-      "Highlighted latency risks in cloud-heavy health monitoring.",
-      "Explored real-time data handling between hardware and software.",
-      "Recognized by the Computer Science and Engineering department.",
-    ],
-    accent: "#22c55e",
-  },
 ];
 
 export const workNotes = [

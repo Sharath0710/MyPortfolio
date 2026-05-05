@@ -11,7 +11,7 @@ export function Career() {
       eyebrow="Career"
       chapter="04"
       title="A path from engineering projects to production XR work."
-      intro="The timeline connects Sharath's current XR development role, backend training foundation, IoT exposure, and engineering education."
+      intro="The timeline connects my current XR development role, backend training foundation, IoT exposure, and engineering education."
     >
       <motion.div
         variants={staggerContainer}
