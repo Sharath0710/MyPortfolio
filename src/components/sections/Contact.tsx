@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import { type FormEvent, useState } from "react";
 import { profile, socialLinks } from "../../data/portfolio";
 import { fadeUp, staggerContainer } from "../../lib/animations/motionVariants";
 import { focusRing } from "../styles/tokens";
@@ -12,14 +13,56 @@ const iconMap = {
   external: ExternalLink,
 };
 
+type FormStatus = "idle" | "sending" | "sent" | "error";
+
 export function Contact() {
+  const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    setFormStatus("sending");
+    setStatusMessage("");
+
+    try {
+      const response = await fetch("/.netlify/functions/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+        }),
+      });
+
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || "Message could not be sent.");
+      }
+
+      form.reset();
+      setFormStatus("sent");
+      setStatusMessage("Message sent. I will get back to you soon.");
+    } catch (error) {
+      setFormStatus("error");
+      setStatusMessage(error instanceof Error ? error.message : "Message could not be sent.");
+    }
+  };
+
   return (
     <Section
       id="contact"
       eyebrow="Contact"
       chapter="05"
-      title="Ready for XR projects, Unity roles, and immersive prototypes."
-      intro="A focused closing section with direct channels for hiring conversations, collaboration, and project walkthroughs."
+      title="Let's build the next XR simulation."
+      intro="Send a note for Unity roles, collaboration, or project walkthroughs."
     >
       <motion.div
         variants={staggerContainer}
@@ -28,27 +71,69 @@ export function Contact() {
         viewport={{ once: true, amount: 0.22 }}
         className="grid gap-5 lg:grid-cols-[1fr_0.82fr]"
       >
-        <HologramPanel accent="#fb7185" className="flex min-h-[360px] flex-col justify-between">
+        <HologramPanel accent="#fb7185" className="min-h-[420px]">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.22em] text-roseSignal">
-              Build the next simulation
+              Write a message
             </p>
-            <h3 className="mt-4 max-w-2xl text-4xl font-semibold text-white">
-              Let the portfolio feel like the work: precise, immersive, and easy to explore.
+            <h3 className="mt-4 max-w-2xl text-3xl font-semibold text-white">
+              Tell me what you are building.
             </h3>
-            <p className="mt-5 max-w-xl text-sm leading-7 text-slate-300">
-              This codebase is ready for demo videos, richer project case studies, and a custom
-              3D character model when final assets are available.
-            </p>
           </div>
 
-          <a
-            href={`mailto:${profile.email}`}
-            className={`mt-10 inline-flex w-fit items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-deep transition hover:bg-cyanSignal ${focusRing}`}
+          <form
+            className="mt-7 grid gap-4"
+            onSubmit={handleSubmit}
           >
-            <Send className="h-4 w-4" aria-hidden="true" />
-            Send Email
-          </a>
+            <label className="grid gap-2 text-sm font-medium text-slate-200">
+              Name
+              <input
+                required
+                name="name"
+                type="text"
+                className={`rounded-md border border-white/10 bg-white/[0.045] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-roseSignal ${focusRing}`}
+                placeholder="Your name"
+              />
+            </label>
+            <label className="grid gap-2 text-sm font-medium text-slate-200">
+              Email
+              <input
+                required
+                name="email"
+                type="email"
+                className={`rounded-md border border-white/10 bg-white/[0.045] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-roseSignal ${focusRing}`}
+                placeholder="you@example.com"
+              />
+            </label>
+            <label className="grid gap-2 text-sm font-medium text-slate-200">
+              Message
+              <textarea
+                required
+                name="message"
+                rows={6}
+                className={`resize-none rounded-md border border-white/10 bg-white/[0.045] px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-roseSignal ${focusRing}`}
+                placeholder="Project, role, or collaboration details"
+              />
+            </label>
+            {statusMessage ? (
+              <p
+                className={`text-sm ${
+                  formStatus === "sent" ? "text-mintSignal" : "text-roseSignal"
+                }`}
+                role="status"
+              >
+                {statusMessage}
+              </p>
+            ) : null}
+            <button
+              type="submit"
+              disabled={formStatus === "sending"}
+              className={`mt-2 inline-flex w-fit items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-deep transition hover:bg-cyanSignal disabled:cursor-not-allowed disabled:opacity-60 ${focusRing}`}
+            >
+              <Send className="h-4 w-4" aria-hidden="true" />
+              {formStatus === "sending" ? "Sending..." : "Send Message"}
+            </button>
+          </form>
         </HologramPanel>
 
         <div className="space-y-5">

@@ -2,7 +2,6 @@ import { Float } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef, useState } from "react";
 import type { Group, Mesh } from "three";
-import { CharacterPlaceholder } from "../components/Character/CharacterPlaceholder";
 import { useScene } from "../context/SceneContext";
 import type { SectionId } from "../data/portfolio";
 
@@ -104,7 +103,7 @@ function SignalOrb({
 }
 
 export function SceneSwitcher({ reducedMotion = false }: { reducedMotion?: boolean }) {
-  const { activeSection, characterEnabled } = useScene();
+  const { activeSection } = useScene();
   const preset = scenePresets[activeSection];
 
   const panels = useMemo(
@@ -178,13 +177,6 @@ export function SceneSwitcher({ reducedMotion = false }: { reducedMotion?: boole
       ))}
       <SignalOrb color={preset.secondary} position={orbPositions.secondary} reducedMotion={reducedMotion} />
       <SignalOrb color={preset.primary} position={orbPositions.primary} reducedMotion={reducedMotion} />
-      <CharacterPlaceholder
-        visible={characterEnabled && (activeSection === "landing" || activeSection === "about")}
-        accent={preset.primary}
-        reducedMotion={reducedMotion}
-        position={activeSection === "landing" ? [2.42, -0.62, -1.95] : [2.55, -1.02, -1.75]}
-        scale={activeSection === "landing" ? 0.92 : 1}
-      />
     </group>
   );
 }

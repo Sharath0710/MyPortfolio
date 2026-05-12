@@ -27,6 +27,7 @@ export const profile = {
   location: "Bengaluru, India",
   email: "sharathaman008@gmail.com",
   phone: "+91 8123399640",
+  resumeHref: "/resume/SHARATH_D_Resume.pdf",
   headline: "Building real-time VR simulations and precise interaction systems.",
   summary:
     "Unity Developer with hands-on experience building real-time 3D interactive applications and VR simulations using Unity and C#. Most project systems are handled independently from scratch, from interaction logic to debugging, polish, and performance.",

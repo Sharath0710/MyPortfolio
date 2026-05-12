@@ -1,5 +1,5 @@
-import { Box, Cpu, Home, Mail, PanelsTopLeft, UserRound, Workflow } from "lucide-react";
-import type { SectionId, NavItem } from "../../data/portfolio";
+import { Box, Cpu, Download, Home, Mail, PanelsTopLeft, UserRound, Workflow } from "lucide-react";
+import { profile, type SectionId, type NavItem } from "../../data/portfolio";
 import { focusRing } from "../styles/tokens";
 
 type NavbarProps = {
@@ -54,6 +54,15 @@ export function Navbar({ items, activeSection }: NavbarProps) {
             );
           })}
         </div>
+
+        <a
+          href={profile.resumeHref}
+          download
+          className={`hidden shrink-0 items-center gap-2 rounded-md border border-cyanSignal/35 bg-cyanSignal/10 px-3 py-2 text-sm font-semibold text-cyanSignal transition hover:bg-white hover:text-deep md:inline-flex ${focusRing}`}
+        >
+          <Download className="h-4 w-4" aria-hidden="true" />
+          Resume
+        </a>
       </nav>
     </header>
   );

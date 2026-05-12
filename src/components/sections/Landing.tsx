@@ -1,11 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Mail, PanelsTopLeft, Sparkles } from "lucide-react";
-import { lazy, Suspense } from "react";
+import { ArrowDown, Download, Mail, PanelsTopLeft, Sparkles } from "lucide-react";
 import { heroSignals, heroStats, profile } from "../../data/portfolio";
 import { fadeUp, staggerContainer } from "../../lib/animations/motionVariants";
 import { containerWidth, focusRing, sectionPadding } from "../styles/tokens";
-
-const AvatarMiniStage = lazy(() => import("../Character/AvatarMiniStage"));
 
 export function Landing() {
   return (
@@ -68,6 +65,14 @@ export function Landing() {
               <Mail className="h-4 w-4" aria-hidden="true" />
               Contact
             </a>
+            <a
+              href={profile.resumeHref}
+              download
+              className={`inline-flex items-center gap-2 rounded-md border border-cyanSignal/40 bg-cyanSignal/10 px-5 py-3 text-sm font-semibold text-cyanSignal transition hover:border-white/70 hover:bg-white hover:text-deep ${focusRing}`}
+            >
+              <Download className="h-4 w-4" aria-hidden="true" />
+              Resume
+            </a>
           </motion.div>
 
           <motion.div variants={fadeUp} className="mt-12 grid max-w-3xl gap-3 sm:grid-cols-3">
@@ -114,16 +119,21 @@ export function Landing() {
             <div>
               <div className="flex items-center gap-2 text-sm font-semibold text-white">
                 <Sparkles className="h-4 w-4 text-orangeSignal" aria-hidden="true" />
-                Digital double
+                Portfolio Signal
               </div>
               <p className="mt-2 text-xs uppercase tracking-[0.18em] text-slate-400">
-                Idle hologram presence / solo build signal
+                Solo build ownership / Unity XR focus
               </p>
               <p className="mt-4 font-mono text-4xl text-white">01</p>
             </div>
-            <Suspense fallback={<div className="h-36 rounded-md bg-white/[0.035]" />}>
-              <AvatarMiniStage />
-            </Suspense>
+            <a
+              href={profile.resumeHref}
+              download
+              className={`inline-flex items-center justify-center gap-2 rounded-md bg-white px-4 py-3 text-sm font-semibold text-deep transition hover:bg-cyanSignal ${focusRing}`}
+            >
+              <Download className="h-4 w-4" aria-hidden="true" />
+              Download Resume
+            </a>
           </div>
         </motion.aside>
       </div>
