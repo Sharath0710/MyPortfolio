@@ -43,15 +43,17 @@ exports.handler = async (event) => {
     return json(400, { message: "Please enter a valid email address." });
   }
 
-  const smtpHost = process.env.SMTP_HOST;
+  const smtpHost = process.env.SMTP_HOST || "smtp.gmail.com";
   const smtpPort = Number(process.env.SMTP_PORT || 465);
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
   const toEmail = process.env.CONTACT_TO_EMAIL || "sharathaman008@gmail.com";
   const fromEmail = process.env.CONTACT_FROM_EMAIL || smtpUser;
 
-  if (!smtpHost || !smtpUser || !smtpPass || !fromEmail) {
-    return json(500, { message: "Contact form email is not configured yet." });
+  if (!smtpUser || !smtpPass) {
+    return json(500, {
+      message: "Email sending is not configured yet. Add SMTP_USER and SMTP_PASS in Netlify environment variables.",
+    });
   }
 
   const transporter = nodemailer.createTransport({
@@ -86,4 +88,3 @@ exports.handler = async (event) => {
     return json(500, { message: "Message could not be sent right now." });
   }
 };
-
