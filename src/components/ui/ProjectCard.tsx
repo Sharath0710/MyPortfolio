@@ -24,6 +24,10 @@ export function ProjectCard({ project, featured = false }: ProjectCardProps) {
           src={project.demoVideo}
           status={project.mediaStatus}
           accent={project.accent}
+          previewStart={project.previewStart}
+          previewEnd={project.previewEnd}
+          reelNote={project.reelNote}
+          chapters={project.chapters}
         />
       </div>
 

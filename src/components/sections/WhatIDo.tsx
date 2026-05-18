@@ -6,25 +6,25 @@ const services = [
     title: "VR Training Systems",
     body: "Procedure-focused simulations for aircraft and industrial training scenarios.",
     icon: Orbit,
-    accent: "#38d9ff",
+    accent: "#14f1ff",
   },
   {
     title: "Mechanical Interactions",
     body: "Torque, snapping, constrained motion, ratcheting, resistance, and feedback systems.",
     icon: Gauge,
-    accent: "#f6c85f",
+    accent: "#f8ff6a",
   },
   {
     title: "Unity Gameplay Logic",
     body: "Movement, collision, progression, modular scripts, and rapid interactive prototypes.",
     icon: Gamepad2,
-    accent: "#6ee7b7",
+    accent: "#7cffc4",
   },
   {
     title: "Runtime Reliability",
     body: "Debugging, optimization, and clean architecture for stable XR experiences.",
     icon: Code2,
-    accent: "#fb7185",
+    accent: "#b86bff",
   },
 ];
 

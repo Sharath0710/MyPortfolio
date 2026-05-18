@@ -10,10 +10,10 @@ export function Work() {
   return (
     <Section
       id="work"
-      eyebrow="Selected Work"
+      eyebrow="XR Project Reels"
       chapter="02"
-      title="VR simulations, interaction prototypes, and Unity systems."
-      intro="Not every project has public video yet. The project system now supports private walkthroughs, future demo recordings, and additional work beyond the resume."
+      title="Short, scannable reels for VR simulations and interaction systems."
+      intro="Long walkthroughs are presented as focused XR highlights first, with full demos still available when a recruiter or reviewer wants the complete procedure."
     >
       <motion.div
         variants={staggerContainer}

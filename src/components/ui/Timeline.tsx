@@ -18,7 +18,7 @@ export function Timeline({ items, variant = "career" }: TimelineProps) {
           <div className="absolute left-0 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-cyanSignal/40 bg-deep text-cyanSignal shadow-holo">
             <Icon className="h-4 w-4" aria-hidden="true" />
           </div>
-          <HologramPanel accent={variant === "career" ? "#38d9ff" : "#f6c85f"}>
+          <HologramPanel accent={variant === "career" ? "#14f1ff" : "#f8ff6a"}>
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
                 <p className="text-sm text-slate-400">{item.period}</p>
@@ -55,4 +55,3 @@ export function Timeline({ items, variant = "career" }: TimelineProps) {
     </div>
   );
 }
-

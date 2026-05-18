@@ -5,17 +5,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        deep: "#05070d",
-        panel: "#0d1320",
-        cyanSignal: "#38d9ff",
-        amberSignal: "#f6c85f",
-        orangeSignal: "#f25e04",
-        mintSignal: "#6ee7b7",
-        roseSignal: "#fb7185",
+        deep: "#03040b",
+        panel: "#0a1020",
+        cyanSignal: "#14f1ff",
+        amberSignal: "#f8ff6a",
+        orangeSignal: "#ff9f1c",
+        mintSignal: "#7cffc4",
+        roseSignal: "#b86bff",
       },
       boxShadow: {
-        holo: "0 0 38px rgba(56, 217, 255, 0.18)",
-        amber: "0 0 34px rgba(246, 200, 95, 0.16)",
+        holo: "0 0 46px rgba(20, 241, 255, 0.22)",
+        amber: "0 0 34px rgba(248, 255, 106, 0.16)",
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],

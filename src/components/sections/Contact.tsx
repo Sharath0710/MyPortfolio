@@ -71,7 +71,7 @@ export function Contact() {
         viewport={{ once: true, amount: 0.22 }}
         className="grid gap-5 lg:grid-cols-[1fr_0.82fr]"
       >
-        <HologramPanel accent="#fb7185" className="min-h-[420px]">
+        <HologramPanel accent="#b86bff" className="min-h-[420px]">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.22em] text-roseSignal">
               Write a message
@@ -137,7 +137,7 @@ export function Contact() {
         </HologramPanel>
 
         <div className="space-y-5">
-          <HologramPanel accent="#38d9ff">
+          <HologramPanel accent="#14f1ff">
             <div className="space-y-4 text-sm text-slate-300">
               <a
                 href={`mailto:${profile.email}`}

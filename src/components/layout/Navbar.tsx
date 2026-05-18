@@ -46,10 +46,7 @@ export function Navbar({ items, activeSection }: NavbarProps) {
                 aria-current={isActive ? "page" : undefined}
               >
                 <Icon className="h-4 w-4" aria-hidden="true" />
-                <span className="hidden sm:inline">
-                  <span className="mr-1 font-mono text-[0.68rem] text-slate-500">{item.chapter}</span>
-                  {item.label}
-                </span>
+                <span className="hidden sm:inline">{item.label}</span>
               </a>
             );
           })}

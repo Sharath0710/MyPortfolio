@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import type { ReactNode } from "react";
+import { useRef } from "react";
 import type { SectionId } from "../../data/portfolio";
 import { fadeUp } from "../../lib/animations/motionVariants";
 import { containerWidth, sectionPadding } from "../styles/tokens";
@@ -14,9 +15,24 @@ type SectionProps = {
   className?: string;
 };
 
-export function Section({ id, eyebrow, chapter, title, intro, children, className = "" }: SectionProps) {
+export function Section({ id, eyebrow, title, intro, children, className = "" }: SectionProps) {
+  const ref = useRef<HTMLElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 86%", "end 16%"],
+  });
+  const opacity = useTransform(scrollYProgress, [0, 0.16, 0.84, 1], [0.28, 1, 1, 0.42]);
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [72, 0, 0, -34]);
+  const scale = useTransform(scrollYProgress, [0, 0.18, 0.82, 1], [0.965, 1, 1, 0.985]);
+
   return (
-    <section id={id} className={`relative min-h-screen ${sectionPadding} ${className}`}>
+    <motion.section
+      ref={ref}
+      id={id}
+      style={prefersReducedMotion ? undefined : { opacity, y, scale }}
+      className={`section-depth relative min-h-screen scroll-mt-28 ${sectionPadding} ${className}`}
+    >
       <div className={containerWidth}>
         <motion.header
           variants={fadeUp}
@@ -26,7 +42,6 @@ export function Section({ id, eyebrow, chapter, title, intro, children, classNam
           className="mb-10 max-w-3xl"
         >
           <p className="text-sm font-medium uppercase tracking-[0.28em] text-cyanSignal">
-            {chapter ? <span className="mr-3 font-mono text-amberSignal">{chapter}</span> : null}
             {eyebrow}
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-normal text-white sm:text-5xl">
@@ -36,6 +51,6 @@ export function Section({ id, eyebrow, chapter, title, intro, children, classNam
         </motion.header>
         {children}
       </div>
-    </section>
+    </motion.section>
   );
 }

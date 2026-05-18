@@ -10,6 +10,10 @@ export type Project = {
   highlights: string[];
   repository?: string;
   demoVideo?: string;
+  previewStart?: number;
+  previewEnd?: number;
+  reelNote?: string;
+  chapters?: { label: string; time: number }[];
   accent: string;
 };
 
@@ -23,7 +27,7 @@ export const projects: Project[] = [
     impact:
       "Delivered as a rapid XR technical assessment with stable physics, molecule validation, and interaction reset flows.",
     ownership: "Solo build from scratch",
-    mediaStatus: "planned",
+    mediaStatus: "available",
     tech: ["Unity", "C#", "VR", "ScriptableObjects", "World-space UI"],
     highlights: [
       "Implemented proximity-based atom bonding.",
@@ -31,7 +35,16 @@ export const projects: Project[] = [
       "Built reset, info, and interaction systems for XR use.",
     ],
     repository: "https://github.com/Sharath0710/VR-Molecular-Chemistry-Lab-Demo",
-    accent: "#38d9ff",
+    demoVideo: "/Videos/VR%20Molecular%20Chemistry%20Lab.mp4",
+    previewStart: 7,
+    previewEnd: 31,
+    reelNote: "Interaction loop",
+    chapters: [
+      { label: "Atoms", time: 7 },
+      { label: "Bonding", time: 18 },
+      { label: "Reset", time: 31 },
+    ],
+    accent: "#14f1ff",
   },
   {
     id: "a320-fuel-pump-interaction",
@@ -42,14 +55,14 @@ export const projects: Project[] = [
     impact:
       "Created modular constrained interaction logic for real-world training simulation accuracy.",
     ownership: "Individually handled from scratch",
-    mediaStatus: "private",
+    mediaStatus: "available",
     tech: ["Unity", "C#", "UltimateXR", "VR Mechanics"],
     highlights: [
       "Implemented torque-based wrench behavior.",
       "Added directional constraints and progressive resistance.",
       "Built constrained slide-out and snapping behavior.",
     ],
-    accent: "#f6c85f",
+    accent: "#f8ff6a",
   },
   {
     id: "a320-nose-jacking",
@@ -67,7 +80,16 @@ export const projects: Project[] = [
       "Built resistance handling and directional rotation logic.",
       "Optimized runtime behavior for smooth VR interaction.",
     ],
-    accent: "#6ee7b7",
+    demoVideo: "/Videos/A320%20Nose%20Jacking.mp4",
+    previewStart: 12,
+    previewEnd: 38,
+    reelNote: "Procedure highlight",
+    chapters: [
+      { label: "Setup", time: 12 },
+      { label: "Torque", time: 24 },
+      { label: "Feedback", time: 38 },
+    ],
+    accent: "#7cffc4",
   },
   {
     id: "a320-preflight-checklist",
@@ -85,7 +107,7 @@ export const projects: Project[] = [
       "Designed readable VR checklist UI flows.",
       "Optimized interaction handling for responsiveness.",
     ],
-    accent: "#fb7185",
+    accent: "#b86bff",
   },
   {
     id: "crazy-cube",
@@ -96,7 +118,7 @@ export const projects: Project[] = [
     impact:
       "Built as a gameplay foundation project covering controls, collision handling, level completion, and balancing.",
     ownership: "Solo gameplay prototype",
-    mediaStatus: "planned",
+    mediaStatus: "available",
     tech: ["Unity", "C#", "Physics", "Gameplay"],
     highlights: [
       "Built movement, collision, and completion logic.",
@@ -104,7 +126,16 @@ export const projects: Project[] = [
       "Practiced gameplay debugging and balancing.",
     ],
     repository: "https://github.com/Sharath0710/Crazy-Cube",
-    accent: "#a78bfa",
+    demoVideo: "/Videos/Crazy%20Cube.mp4",
+    previewStart: 3,
+    previewEnd: 26,
+    reelNote: "Gameplay demo",
+    chapters: [
+      { label: "Move", time: 3 },
+      { label: "Dodge", time: 12 },
+      { label: "Goal", time: 22 },
+    ],
+    accent: "#ff9f1c",
   },
 ];
 
@@ -115,7 +146,7 @@ export const workNotes = [
   },
   {
     value: "Private",
-    label: "Some professional demos are not public, so cards support private walkthrough states.",
+    label: "Professional demos can be shown as videos or private walkthrough states.",
   },
   {
     value: "More+",

@@ -10,11 +10,11 @@ function MiniScene() {
     <>
       <ambientLight intensity={0.95} />
       <directionalLight position={[2, 4, 3]} intensity={1.4} />
-      <pointLight position={[-2, 1, 2]} color="#38d9ff" intensity={1.2} />
-      <pointLight position={[2, -1, 2]} color="#f25e04" intensity={1} />
+      <pointLight position={[-2, 1, 2]} color="#14f1ff" intensity={1.2} />
+      <pointLight position={[2, -1, 2]} color="#b86bff" intensity={1} />
       <CharacterPlaceholder
         visible
-        accent="#f25e04"
+        accent="#b86bff"
         reducedMotion={reducedMotion}
         position={[0, 0.05, 0]}
         scale={0.82}

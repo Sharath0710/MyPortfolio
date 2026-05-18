@@ -16,8 +16,9 @@ export function Landing() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-xs font-medium uppercase tracking-[0.18em] text-cyanSignal sm:text-sm sm:tracking-[0.3em]"
+            className="inline-flex items-center gap-2 rounded-md border border-cyanSignal/25 bg-cyanSignal/10 px-3 py-2 text-xs font-medium uppercase tracking-[0.18em] text-cyanSignal sm:text-sm sm:tracking-[0.24em]"
           >
+            <span className="h-1.5 w-1.5 rounded-full bg-mintSignal" />
             {profile.role}
           </motion.p>
 
@@ -53,14 +54,14 @@ export function Landing() {
           <motion.div variants={fadeUp} className="mt-9 flex flex-wrap gap-3">
             <a
               href="#work"
-              className={`inline-flex items-center gap-2 rounded-md bg-orangeSignal px-5 py-3 text-sm font-semibold text-white shadow-amber transition hover:bg-white hover:text-deep ${focusRing}`}
+              className={`inline-flex items-center gap-2 rounded-md bg-cyanSignal px-5 py-3 text-sm font-semibold text-deep shadow-holo transition hover:bg-white ${focusRing}`}
             >
               <PanelsTopLeft className="h-4 w-4" aria-hidden="true" />
               View Work
             </a>
             <a
               href={`mailto:${profile.email}`}
-              className={`inline-flex items-center gap-2 rounded-md border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-amberSignal/70 hover:text-amberSignal ${focusRing}`}
+              className={`inline-flex items-center gap-2 rounded-md border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:border-roseSignal/70 hover:text-roseSignal ${focusRing}`}
             >
               <Mail className="h-4 w-4" aria-hidden="true" />
               Contact
@@ -68,7 +69,7 @@ export function Landing() {
             <a
               href={profile.resumeHref}
               download
-              className={`inline-flex items-center gap-2 rounded-md border border-cyanSignal/40 bg-cyanSignal/10 px-5 py-3 text-sm font-semibold text-cyanSignal transition hover:border-white/70 hover:bg-white hover:text-deep ${focusRing}`}
+              className={`inline-flex items-center gap-2 rounded-md border border-mintSignal/40 bg-mintSignal/10 px-5 py-3 text-sm font-semibold text-mintSignal transition hover:border-white/70 hover:bg-white hover:text-deep ${focusRing}`}
             >
               <Download className="h-4 w-4" aria-hidden="true" />
               Resume
@@ -89,25 +90,28 @@ export function Landing() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          className="holo-surface relative hidden min-h-[560px] overflow-hidden rounded-lg p-5 shadow-holo lg:block"
+          className="holo-surface relative hidden min-h-[560px] overflow-hidden rounded-md p-5 shadow-holo lg:block"
         >
-          <div className="absolute inset-0 grid-mask opacity-20" />
-          <div className="absolute -right-20 top-8 h-56 w-56 rounded-full bg-orangeSignal/20 blur-3xl" />
+          <div className="absolute inset-0 xr-scan-grid opacity-[0.35]" />
+          <div className="absolute right-0 top-8 h-40 w-1/2 bg-[linear-gradient(90deg,transparent,rgba(255,92,168,0.16))]" />
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-deep to-transparent" />
           <div className="relative z-10 flex items-center justify-between text-xs uppercase tracking-[0.2em] text-slate-400">
-            <span>Build / S.D</span>
-            <span className="text-orangeSignal">2026</span>
+            <span>XR Deck / S.D</span>
+            <span className="text-roseSignal">Live</span>
           </div>
-          <div className="relative z-10 mt-6 overflow-hidden rounded-lg border border-white/10 bg-black/30">
+          <div className="relative z-10 mt-6 overflow-hidden rounded-md border border-white/10 bg-black/30">
             <img
               src="/images/sharath-avatar-reference.jpeg"
               alt="Sharath portrait reference for the portfolio avatar"
               className="h-[420px] w-full object-cover object-[52%_35%] opacity-85 saturate-[0.92]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-deep via-transparent to-transparent" />
+            <div className="absolute inset-4 border border-cyanSignal/25" />
+            <div className="absolute left-4 top-4 h-12 w-12 border-l border-t border-mintSignal/70" />
+            <div className="absolute bottom-4 right-4 h-12 w-12 border-b border-r border-roseSignal/70" />
             <div className="absolute bottom-5 left-5 right-5">
-              <p className="text-xs font-medium uppercase tracking-[0.28em] text-orangeSignal">
-                Spatial Computing
+              <p className="text-xs font-medium uppercase tracking-[0.28em] text-mintSignal">
+                Spatial Computing Interface
               </p>
               <h2 className="mt-2 text-4xl font-black uppercase leading-[0.9] tracking-normal text-white">
                 XR Systems
@@ -118,18 +122,18 @@ export function Landing() {
           <div className="relative z-10 mt-5 grid items-end gap-4 border-t border-white/10 pt-4 sm:grid-cols-[0.95fr_0.72fr]">
             <div>
               <div className="flex items-center gap-2 text-sm font-semibold text-white">
-                <Sparkles className="h-4 w-4 text-orangeSignal" aria-hidden="true" />
-                Portfolio Signal
+                <Sparkles className="h-4 w-4 text-roseSignal" aria-hidden="true" />
+                Immersive Signal
               </div>
               <p className="mt-2 text-xs uppercase tracking-[0.18em] text-slate-400">
-                Solo build ownership / Unity XR focus
+                Unity systems / Training simulation / VR mechanics
               </p>
               <p className="mt-4 font-mono text-4xl text-white">01</p>
             </div>
             <a
               href={profile.resumeHref}
               download
-              className={`inline-flex items-center justify-center gap-2 rounded-md bg-white px-4 py-3 text-sm font-semibold text-deep transition hover:bg-cyanSignal ${focusRing}`}
+              className={`inline-flex items-center justify-center gap-2 rounded-md bg-white px-4 py-3 text-sm font-semibold text-deep transition hover:bg-mintSignal ${focusRing}`}
             >
               <Download className="h-4 w-4" aria-hidden="true" />
               Download Resume

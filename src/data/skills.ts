@@ -10,7 +10,7 @@ export const skillGroups: SkillGroup[] = [
     title: "Core",
     summary: "Unity-first development for games, simulations, and real-time interaction systems.",
     skills: ["Unity3D", "C#", "Game Mechanics", "OOP", "Gameplay Systems", "UI Systems"],
-    accent: "#38d9ff",
+    accent: "#14f1ff",
   },
   {
     title: "XR & Devices",
@@ -26,7 +26,7 @@ export const skillGroups: SkillGroup[] = [
       "Google ARCore",
       "Unity OpenXR: Android XR",
     ],
-    accent: "#6ee7b7",
+    accent: "#7cffc4",
   },
   {
     title: "Development",
@@ -39,13 +39,13 @@ export const skillGroups: SkillGroup[] = [
       "GitHub",
       "Perforce Helix Core",
     ],
-    accent: "#f6c85f",
+    accent: "#f8ff6a",
   },
   {
     title: "Additional",
     summary: "Backend and web foundations that support tool building and integration work.",
     skills: ["REST API Basics", "JSON", "JavaScript", "Java", "RDBMS", "Spring", "Angular"],
-    accent: "#fb7185",
+    accent: "#b86bff",
   },
 ];
 
@@ -56,4 +56,3 @@ export const certifications = [
   "TCS iON Career Edge - Young Professional",
   "Java Full Stack Development - EduBridge",
 ];
-

@@ -68,7 +68,7 @@ exports.handler = async (event) => {
 
   try {
     await transporter.sendMail({
-      from: `"Sharath Portfolio" <${fromEmail}>`,
+      from: `"${name} via Sharath Portfolio" <${fromEmail}>`,
       to: toEmail,
       replyTo: `"${name}" <${email}>`,
       subject: `Portfolio message from ${name}`,

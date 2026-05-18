@@ -13,7 +13,7 @@ type CharacterPlaceholderProps = {
 
 export function CharacterPlaceholder({
   visible,
-  accent = "#38d9ff",
+  accent = "#14f1ff",
   reducedMotion = false,
   position = [2.55, -1.02, -1.75],
   scale = 1,

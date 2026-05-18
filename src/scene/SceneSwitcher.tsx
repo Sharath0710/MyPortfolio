@@ -6,12 +6,12 @@ import { useScene } from "../context/SceneContext";
 import type { SectionId } from "../data/portfolio";
 
 const scenePresets: Record<SectionId, { primary: string; secondary: string; spread: number }> = {
-  landing: { primary: "#38d9ff", secondary: "#f25e04", spread: 1.1 },
-  about: { primary: "#6ee7b7", secondary: "#38d9ff", spread: 1.24 },
-  work: { primary: "#f25e04", secondary: "#38d9ff", spread: 1.4 },
-  tech: { primary: "#a78bfa", secondary: "#38d9ff", spread: 1.08 },
-  career: { primary: "#38d9ff", secondary: "#6ee7b7", spread: 1.26 },
-  contact: { primary: "#fb7185", secondary: "#f6c85f", spread: 1.0 },
+  landing: { primary: "#14f1ff", secondary: "#b86bff", spread: 1.1 },
+  about: { primary: "#7cffc4", secondary: "#14f1ff", spread: 1.24 },
+  work: { primary: "#ff9f1c", secondary: "#14f1ff", spread: 1.4 },
+  tech: { primary: "#b86bff", secondary: "#14f1ff", spread: 1.08 },
+  career: { primary: "#14f1ff", secondary: "#7cffc4", spread: 1.26 },
+  contact: { primary: "#b86bff", secondary: "#f8ff6a", spread: 1.0 },
 };
 
 function FloatingPanel({

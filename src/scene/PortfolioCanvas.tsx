@@ -20,7 +20,7 @@ export function PortfolioCanvas() {
           powerPreference: "high-performance",
         }}
       >
-        <color attach="background" args={["#05070d"]} />
+        <color attach="background" args={["#03040b"]} />
         <Suspense fallback={null}>
           <CameraRig enabled={!reducedMotion} />
           <EnvironmentScene reducedMotion={reducedMotion} />
